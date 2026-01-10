@@ -1,3 +1,8 @@
+using System.ComponentModel.Design;
+using System.Diagnostics;
+using System.Globalization;
+using System.Reflection.Metadata.Ecma335;
+
 public static class Arrays
 {
     /// <summary>
@@ -7,13 +12,24 @@ public static class Arrays
     /// </summary>
     /// <returns>array of doubles that are the multiples of the supplied number</returns>
     public static double[] MultiplesOf(double number, int length)
-    {
+    {   
         // TODO Problem 1 Start
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
 
-        return []; // replace this return statement with your own
+        // We have three sets of test so were going to use a generator array.
+        // Firstly we mention the variables double and multiple since its the variables we have on test that is in common
+        // We create a loop to calculate the multiples using "For" value.
+        // We calculate multiples by using this formula Multiples = O'numbers' * (n'i' + 1)
+
+        double[] multiples = new double[length];
+        for (int i = 0; i < length; i++)
+        {
+            multiples[i] = number * (i + 1);
+        }
+
+        return multiples; // Return multiples to array.
     }
 
     /// <summary>
@@ -29,5 +45,18 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+
+        // We have four set of test that is requested to rotate the list to the right so were going to use a transformer.
+        // Firstly we use the variables List<int>number which is in the test.
+        // Second is we create a loop to calculate to rotate the list to the right
+        // Lastly we calculate it using getrange to pick up the number to move them, 
+        // removerange to remove them form the list, 
+        // and insertrange to insert them to the desired position. 
+
+        var temp = data.GetRange(data.Count - amount, amount);
+
+        data.RemoveRange(data.Count - amount, amount);
+        
+        data.InsertRange(0, temp);
     }
 }
