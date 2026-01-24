@@ -33,7 +33,7 @@
         var valuesSeen = new HashSet<int>();
         foreach (var n in numbers)
         {
-            if (valuesSeen.Contains(10 - n));
+            if (valuesSeen.Contains(10 - n))
             Console.WriteLine($"{n} {10 - n}");
             
             valuesSeen.Add(n);
